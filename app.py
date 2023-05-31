@@ -26,3 +26,19 @@ for i in valores:
         print(k)
 
 print(produtos)
+
+# Inserindo informações no banco de dados
+dados_usuario = ("ismaelsoares", "soberano456")
+cursor.execute(
+    "INSERT INTO usuarios (nome, senha) VALUES (?, ?)", dados_usuario)
+conexao.commit()  # Gravano no Banco de Dados
+
+cursor.execute("SELECT * FROM usuarios")
+
+valores = cursor.fetchall()
+
+print(valores)
+
+# Fechar o cursor e a conexão
+cursor.close()
+conexao.close()
