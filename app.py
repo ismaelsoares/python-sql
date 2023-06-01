@@ -31,7 +31,7 @@ print(produtos)
 dados_usuario = ("ismaelsoares", "soberano456")
 cursor.execute(
     "INSERT INTO usuarios (nome, senha) VALUES (?, ?)", dados_usuario)
-conexao.commit()  # Gravano no Banco de Dados
+conexao.commit()  # Gravando no Banco de Dados
 
 cursor.execute("SELECT * FROM usuarios")
 
