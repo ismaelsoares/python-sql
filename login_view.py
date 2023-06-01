@@ -21,8 +21,25 @@ def verifica_credenciais():
     cursor.execute("SELECT * FROM usuarios WHERE nome = ? AND senha = ?",
                    (ent_nome_usuario.get(), ent_senha.get()))
 
+    # Recebendo o resultado da QUERY
+    usuario = cursor.fetchall()
 
+    if usuario:
+        print("Usuario logado com sucesso!")
+        login_window.destroy()
+
+        main_window = Tk()
+        main_window.title("Tela Principal")
+
+        cursor.close()
+        conexao.close()
+
+    else:
+        lbl_mensagem = Label(
+            login_window, text="Usuario ou senha incorretos!", fg="red", bg="#F5F5F5")
+        lbl_mensagem.grid(row=7, column=0, columnspan=2)
 # Criando a janela principal para tela de login
+
 
 login_window = Tk()
 login_window.title("Tela de Login")
